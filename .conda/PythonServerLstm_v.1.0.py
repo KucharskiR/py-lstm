@@ -1,4 +1,4 @@
-import socket
+import socket # type: ignore
 import time
 import numpy as np
 import keras
@@ -8,16 +8,16 @@ from keras.layers import LSTM
 from keras.layers import Dense
 from keras.optimizers import Adam
 from keras.callbacks import LambdaCallback
-from keras.initializers import TruncatedNormal
+# from keras.initializers import TruncatedNormal
 from keras.models import save_model
 from keras.models import load_model
 import os
 
 print(tf.__version__)
 
-
 # Read model
 model = tf.keras.models.load_model(filepath=r"./lstm_Model.h5", compile=False)
+assert model is not None
 print(model.summary())
 
 def process_data(data_received):
@@ -30,7 +30,7 @@ def process_data(data_received):
     # Convert the list of lists to a NumPy array
     data = np.array(float_rows)
     print(data)
-    data = data.reshape(1, 120, 8)
+    data = data.reshape(1, 150, 9)
 
     # Get result
     result = np.argmax(model.predict(data), axis=-1)
