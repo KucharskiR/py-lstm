@@ -9,14 +9,13 @@ from keras.layers import Dense
 from keras.optimizers import Adam
 from keras.callbacks import LambdaCallback
 # from keras.initializers import TruncatedNormal
-from keras.models import save_model
-from keras.models import load_model
+from keras.models import save_model, load_model
 import os
 
 print(tf.__version__)
 
 # Read model
-model = tf.keras.models.load_model(filepath=r"./lstm_Model.h5", compile=False)
+model = load_model(filepath=r"./lstm_Model.h5", compile=False)
 assert model is not None
 print(model.summary())
 

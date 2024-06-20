@@ -1,5 +1,6 @@
 {
     "python.analysis.typeCheckingMode": "basic",
     "python.analysis.autoImportCompletions": true,
-    "python.defaultInterpreterPath": "c:/Users/kucha/.conda/envs/tf/"
+    "python.defaultInterpreterPath": "c:/Users/kucha/.conda/envs/tf/",
+    "python.analysis.extraPaths": ["c:/Users/Dell/.conda/envs/tf_env/Lib/site-packages/keras"]
 }
