@@ -29,10 +29,13 @@ def process_data(data_received):
     # Convert the list of lists to a NumPy array
     data = np.array(float_rows)
     print(data)
+    # Reshape samples, timesteps, features
     data = data.reshape(1, 150, 9)
 
     # Get result
-    result = np.argmax(model.predict(data), axis=-1)
+    # result = np.argmax(model.predict(data), axis=-1)
+    result = model.predict(data)
+    
     print(result)
     return result
 
