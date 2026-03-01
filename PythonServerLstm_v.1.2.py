@@ -1,7 +1,7 @@
 import socket
 import numpy as np
 import tensorflow as tf
-from keras.models import load_model
+from keras.models import load_model, Model
 import os
 
 # Configuration
@@ -16,9 +16,9 @@ print(f"TensorFlow version: {tf.__version__}")
 # Load model
 if os.path.exists(MODEL_PATH):
     # compile=False since we only use it for prediction
-    model = load_model(MODEL_PATH, compile=False)
+    model: Model = load_model(MODEL_PATH, compile=False) # type: ignore
     print(f"Model loaded successfully from {MODEL_PATH}")
-    model.summary()
+    model.summary() # type: ignore
 else:
     print(f"CRITICAL ERROR: Model file not found at {MODEL_PATH}")
     print("Please train the model in Jupyter first using 'features = 3' setting.")
@@ -48,9 +48,9 @@ def process_data(data_received):
         # Reshape to (samples, timesteps, features) -> (1, 10, 21)
         data = np.array(float_rows).reshape(1, TIMESTEPS, FEATURES)
         
-        # Run prediction
+        # Run predictions
+        result = model.predict(data, verbose=0) # type: ignore
         # Output shape is (1, 2) where [0][0] is Sell prob and [0][1] is Buy prob
-        result = model.predict(data, verbose=0)
         p_sell = result[0][0]
         p_buy = result[0][1]
         

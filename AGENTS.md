@@ -15,18 +15,20 @@ LSTM-based financial signal prediction system. Uses technical indicators to gene
 ├── 10_Final_Training_Attention.ipynb # Production pipeline: LSTM + Attention
 ├── PythonServerLstm_v.1.2.py         # Production inference server (Socket)
 ├── data/                             # Datasets (.tar.gz and extracted .csv)
+├── docs/                             # Project documentation and notes
+├── logs/                             # Session logs and operation history
+├── scripts/                          # Utility and maintenance scripts
 ├── results/                          # Sequential experiment archives (01-21) [See results/AGENTS.md]
 ├── saved_models/                     # Keras model checkpoints (.keras)
 ├── Tempkeras-source/                 # Cloned Keras repository (unintegrated reference) [See Tempkeras-source/AGENTS.md]
 └── ExportAiData/                     # [Peer Project] MQL4 data export scripts [See ExportAiData/AGENTS.md]
-
 ## WHERE TO LOOK
 | Task | Location | Notes |
 |------|----------|-------|
 | Update Indicators | `ExportAiData/include/generateFunc.mqh` | Peer project handles data origin |
 | Change Architecture | `10_Final_Training_Attention.ipynb` | Edit `fit_lstmModel()` |
 | Inference Logic | `PythonServerLstm_v.1.2.py` | Handles socket communication |
-| Past Conclusions | `analysis_conclusions.md` | Summaries of previous runs |
+| Past Conclusions | `docs/analysis_conclusions.md` | Summaries of previous runs |
 
 ## CODE MAP
 | Symbol | Type | Location | Role |
